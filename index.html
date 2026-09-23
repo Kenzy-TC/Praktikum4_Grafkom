@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Rotating 3D Cube Camera Playground</title>
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<main class="app">
+  <header>
+    <h1>Rotating 3D Cube Camera Playground</h1>
+    <p>WebGL2 — Camera, Projection &amp; 3D Depth</p>
+  </header>
+
+  <section class="stage">
+    <div class="canvas-wrap">
+      <canvas id="glCanvas" width="960" height="600"></canvas>
+      <div class="split-labels" id="splitLabels">
+        <span>Perspective</span>
+        <span>Orthographic</span>
+      </div>
+    </div>
+
+    <aside class="panel">
+      <h2>Parameter Control</h2>
+
+      <div class="slider-row">
+        <div class="label"><span>FOV perspective</span><output id="fovOut">60°</output></div>
+        <input id="fovSlider" type="range" min="30" max="110" step="1" value="60">
+      </div>
+
+      <div class="slider-row">
+        <div class="label"><span>Camera height</span><output id="camHOut">1.50</output></div>
+        <input id="camHSlider" type="range" min="-3" max="5" step="0.05" value="1.5">
+      </div>
+
+      <div class="slider-row">
+        <div class="label"><span>Target X</span><output id="tgtXOut">0.00</output></div>
+        <input id="tgtXSlider" type="range" min="-2" max="2" step="0.05" value="0">
+      </div>
+
+      <div class="slider-row">
+        <div class="label"><span>Target Y</span><output id="tgtYOut">0.00</output></div>
+        <input id="tgtYSlider" type="range" min="-2" max="2" step="0.05" value="0">
+      </div>
+
+      <div class="btn-grid">
+        <button class="btn" id="btnProjection" title="Toggle Perspective / Orthographic">Projection (O)</button>
+        <button class="btn" id="btnOrbit"      title="Orbit camera mengelilingi target">Orbit (B)</button>
+        <button class="btn" id="btnSplit"      title="Split screen Perspective | Orthographic">Split (X)</button>
+        <button class="btn" id="btnDepth"      title="Depth Test ON / OFF">Depth (D)</button>
+        <button class="btn" id="btnNearFar"    title="Cycle Near/Far preset">Near/Far (N)</button>
+        <button class="btn" id="btnFovPreset"  title="Cycle 35 / 60 / 90°">FOV Preset</button>
+        <button class="btn" id="btnMulti"      title="Tampilkan 3 cube di depth berbeda">Multi-Cube (M)</button>
+        <button class="btn full" id="btnReset" title="Reset seluruh state">Reset Scene (R)</button>
+      </div>
+
+      <div class="kb">
+        <div class="kb-title">Keyboard</div>
+        <div>Arrow: camera X/Y &nbsp;·&nbsp; W/S: camera Z</div>
+        <div>PgUp/PgDn: camera height</div>
+        <div>[ / ]: FOV &nbsp;·&nbsp; 1/2/3: FOV preset</div>
+        <div>Q/E: target X &nbsp;·&nbsp; R/F: target Y</div>
+        <div>O: projection &nbsp;·&nbsp; B: orbit &nbsp;·&nbsp; X: split</div>
+        <div>D: depth &nbsp;·&nbsp; N: near/far &nbsp;·&nbsp; M: multi-cube</div>
+      </div>
+    </aside>
+  </section>
+
+  <section id="hud">
+    <div class="hud-box"><span class="hud-label">Projection</span><span class="hud-value" id="projectionInfo">perspective</span></div>
+    <div class="hud-box"><span class="hud-label">Camera</span><span class="hud-value" id="cameraInfo">(0.00, 1.50, 4.00)</span></div>
+    <div class="hud-box"><span class="hud-label">FOV</span><span class="hud-value" id="fovInfo">60.0°</span></div>
+    <div class="hud-box"><span class="hud-label">Near / Far</span><span class="hud-value" id="clipInfo">0.1 / 100</span></div>
+    <div class="hud-box"><span class="hud-label">Depth Test</span><span class="hud-value" id="depthInfo">ON</span></div>
+  </section>
+</main>
+
+<script type="module" src="./main.js"></script>
+</body>
+</html>
