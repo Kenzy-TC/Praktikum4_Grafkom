@@ -297,19 +297,25 @@ const keys = {};
 const CAM_SPEED = 2.0;
 
 function updateCamera(dt){
+  // Camera Posisi X
   if (keys["arrowleft"])  camera.position[0] -= CAM_SPEED * dt;
   if (keys["arrowright"]) camera.position[0] += CAM_SPEED * dt;
-  if (keys["arrowup"])    camera.position[1] += CAM_SPEED * dt;
-  if (keys["arrowdown"])  camera.position[1] -= CAM_SPEED * dt;
+  
+  // Camera Posisi Y (Height / Naik Turun)
+  if (keys["q"]) camera.position[1] += CAM_SPEED * dt;
+  if (keys["e"]) camera.position[1] -= CAM_SPEED * dt;
+
+  // Camera Posisi Z
   if (keys["w"]) camera.position[2] -= CAM_SPEED * dt;
   if (keys["s"]) camera.position[2] += CAM_SPEED * dt;
-  if (keys["pageup"])     camera.position[1] += CAM_SPEED * dt;
-  if (keys["pagedown"])   camera.position[1] -= CAM_SPEED * dt;
 
-  if (keys["j"]) camera.target[0] -= CAM_SPEED * dt * 0.5;   // target X -
-  if (keys["l"]) camera.target[0] += CAM_SPEED * dt * 0.5;   // target X +
-  if (keys["i"]) camera.target[1] += CAM_SPEED * dt * 0.5;   // target Y +
-  if (keys["k"]) camera.target[1] -= CAM_SPEED * dt * 0.5;   // target Y -
+  // Target X
+  if (keys["j"]) camera.target[0] -= CAM_SPEED * dt * 0.5; 
+  if (keys["l"]) camera.target[0] += CAM_SPEED * dt * 0.5; 
+  
+  // Target Y 
+  if (keys["k"]) camera.target[1] -= CAM_SPEED * dt * 0.5; 
+  if (keys["i"]) camera.target[1] += CAM_SPEED * dt * 0.5; 
 }
 
 function updateFOV(dt){
@@ -438,8 +444,7 @@ window.addEventListener("keydown", (e) => {
   const k = e.key.toLowerCase();
   keys[k] = true;
 
-  if (e.key.startsWith("Arrow") ||
-      e.key === "PageUp" || e.key === "PageDown" || e.key === " "){
+  if (e.key.startsWith("Arrow") || e.key === " "){
     e.preventDefault();
   }
 
