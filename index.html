@@ -92,6 +92,7 @@
         </div>
         <div class="canvas-wrapper">
           <div class="canvas-frame">
+            <!-- Ukuran canvas sesuaikan agar proporsinya baik -->
             <canvas id="glCanvas" width="1100" height="650"></canvas>
             <div class="split-labels" id="splitLabels">
               <span>Perspective</span>
@@ -117,23 +118,23 @@
         <div class="hud-card"><span>FOV</span><strong id="fovInfo">60.0°</strong></div>
         <div class="hud-card"><span>Near / Far</span><strong id="clipInfo">0.1 / 100</strong></div>
         <div class="hud-card"><span>Depth Test</span><strong id="depthInfo">ON</strong></div>
-        <!-- Tambahan dummy HUD agar layout grid terisi penuh/simetris sesuai template -->
         <div class="hud-card"><span>Orbit</span><strong>Interactive</strong></div>
-        <div class="hud-card"><span>FPS</span><strong id="fpsInfo">60 FPS</strong></div>
-        <div class="hud-card"><span>Render</span><strong>WebGL2 API</strong></div>
+        <div class="hud-card"><span>Renderer</span><strong>WebGL2 API</strong></div>
+        <div class="hud-card"><span>Status</span><strong>Active</strong></div>
       </section>
 
       <section class="report-section">
         <div class="section-header"><h4>Petunjuk Interaksi</h4><h2>Kontrol Playground</h2></div>
         <div class="instructions-grid">
-          <p><kbd>Arrow</kbd> mengatur pergeseran kamera sumbu X dan Y, <kbd>W</kbd> <kbd>S</kbd> untuk sumbu Z.</p>
-          <p><kbd>PgUp</kbd> <kbd>PgDn</kbd> menaikkan atau menurunkan ketinggian kamera.</p>
-          <p><kbd>[</kbd> <kbd>]</kbd> mengubah sudut pandang (FOV), <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> mengatur preset FOV.</p>
-          <p><kbd>Q</kbd> <kbd>E</kbd> memindah target fokus kamera sumbu X, <kbd>R</kbd> <kbd>F</kbd> untuk sumbu Y.</p>
+          <!-- Instruksi ini sudah diupdate agar 100% cocok dengan main.js kamu -->
+          <p><kbd>Arrow Kiri/Kanan</kbd> geser posisi kamera X, <kbd>W</kbd> <kbd>S</kbd> geser posisi kamera Z.</p>
+          <p><kbd>Q</kbd> <kbd>E</kbd> menaikkan atau menurunkan ketinggian kamera (Sumbu Y).</p>
+          <p><kbd>J</kbd> <kbd>L</kbd> memindah target fokus kamera sumbu X, <kbd>I</kbd> <kbd>K</kbd> untuk sumbu Y.</p>
+          <p><kbd>[</kbd> <kbd>]</kbd> mengubah sudut pandang (FOV), <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> set preset FOV.</p>
           <p><kbd>O</kbd> toggle mode proyeksi, <kbd>B</kbd> memicu animasi orbit melingkar.</p>
-          <p><kbd>X</kbd> membelah layar menjadi 2 <i>viewport</i>, <kbd>D</kbd> mematikan/menyalakan depth test.</p>
+          <p><kbd>X</kbd> membelah layar menjadi 2 <i>viewport</i>, <kbd>D</kbd> toggle depth test on/off.</p>
           <p><kbd>N</kbd> siklus parameter jarak <i>near/far clip</i>, <kbd>M</kbd> spawn multi-cube test.</p>
-          <p><kbd>R</kbd> mereset semua parameter ke kondisi awal *default*.</p>
+          <p><kbd>R</kbd> mereset semua parameter ke kondisi awal (default).</p>
         </div>
       </section>
 
